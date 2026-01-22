@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import ParticleBackground from "./ParticleBackground";
 
 const questionSchema = z.object({
   name: z.string().trim().min(1, "Full name is required").max(100, "Name must be less than 100 characters"),
@@ -19,14 +20,8 @@ const questionSchema = z.object({
 
 type QuestionFormData = z.infer<typeof questionSchema>;
 
-// Environment-based webhook configuration
-const TEST_WEBHOOK_URL = "https://gyanaranjan.app.n8n.cloud/webhook-test/7bdc569d-22a9-4910-a709-5d49cd07f9de";
-const PROD_WEBHOOK_URL = ""; // Replace with production webhook URL when ready
-
-// Set to true when deploying to production
-const IS_PRODUCTION = false;
-
-const WEBHOOK_URL = IS_PRODUCTION && PROD_WEBHOOK_URL ? PROD_WEBHOOK_URL : TEST_WEBHOOK_URL;
+// Production webhook URL
+const WEBHOOK_URL = "https://gyanaranjan.app.n8n.cloud/webhook/7bdc569d-22a9-4910-a709-5d49cd07f9de";
 
 const QuestionSection = () => {
   const ref = useRef(null);
@@ -84,7 +79,8 @@ const QuestionSection = () => {
   };
 
   return (
-    <section id="question" className="py-24 relative">
+    <section id="question" className="py-24 relative overflow-hidden">
+      <ParticleBackground />
       <div className="absolute inset-0 gradient-bg opacity-50" />
 
       <div className="container mx-auto px-6 relative z-10">
