@@ -111,7 +111,33 @@
     background-clip: text;
     animation: gradient-shift 6s ease-in-out infinite;
     text-shadow: none;
-    filter: drop-shadow(0 0 20px hsl(var(--neon-cyan) / 0.3));
+    filter: drop-shadow(0 0 15px hsl(var(--neon-cyan) / 0.25));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Hero name text - sharp typography with clean glow */
+  .hero-name-text {
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow: visible;
+  }
+
+  .hero-name-text::before {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: blur(20px) brightness(1.2);
+    opacity: 0.5;
+    z-index: -1;
+    pointer-events: none;
   }
 
   /* Glowing divider line for sections */
