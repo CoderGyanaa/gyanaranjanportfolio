@@ -19,7 +19,14 @@ const questionSchema = z.object({
 
 type QuestionFormData = z.infer<typeof questionSchema>;
 
-const WEBHOOK_URL = "https://gyanaranjan.app.n8n.cloud/webhook-test/7bdc569d-22a9-4910-a709-5d49cd07f9de";
+// Environment-based webhook configuration
+const TEST_WEBHOOK_URL = "https://gyanaranjan.app.n8n.cloud/webhook-test/7bdc569d-22a9-4910-a709-5d49cd07f9de";
+const PROD_WEBHOOK_URL = ""; // Replace with production webhook URL when ready
+
+// Set to true when deploying to production
+const IS_PRODUCTION = false;
+
+const WEBHOOK_URL = IS_PRODUCTION && PROD_WEBHOOK_URL ? PROD_WEBHOOK_URL : TEST_WEBHOOK_URL;
 
 const QuestionSection = () => {
   const ref = useRef(null);
@@ -115,7 +122,6 @@ const QuestionSection = () => {
                 className="text-center py-8"
               >
                 <CheckCircle className="w-16 h-16 text-primary mx-auto mb-4" />
-                <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-foreground mb-2">
                   Thank you!
                 </h3>
