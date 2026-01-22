@@ -78,11 +78,15 @@ const QuestionSection = () => {
   };
 
   return (
-    <section id="question" className="py-24 relative overflow-hidden">
+    <section 
+      id="question" 
+      className="relative py-16 md:py-20 lg:py-24 overflow-visible"
+      style={{ minHeight: "auto", scrollMarginTop: "80px" }}
+    >
       <ParticleBackground />
-      <div className="absolute inset-0 gradient-bg opacity-50" />
+      <div className="absolute inset-0 gradient-bg opacity-50 pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <SectionHeading
           title="Have a Question?"
           subtitle="Feel free to ask anything about my projects, skills, or opportunities."

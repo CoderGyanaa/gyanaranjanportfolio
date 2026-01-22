@@ -68,16 +68,21 @@ const AchievementsSection = () => {
   };
 
   return (
-    <section id="achievements" className="py-24 relative">
-      <div className="absolute inset-0 grid-pattern opacity-30" />
+    <section 
+      id="achievements" 
+      ref={ref}
+      className="relative py-16 md:py-20 lg:py-24 overflow-visible"
+      style={{ minHeight: "auto", scrollMarginTop: "80px" }}
+    >
+      <div className="absolute inset-0 grid-pattern opacity-30 pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <SectionHeading
           title="Achievements & Highlights"
           subtitle="Capturing moments from hackathons, competitions, and memorable events"
         />
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
           {achievements.map((achievement, index) => (
             <motion.div
               key={index}

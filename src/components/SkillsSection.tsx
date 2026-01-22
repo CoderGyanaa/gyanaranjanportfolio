@@ -49,16 +49,20 @@ const SkillsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-24 relative">
-      <div className="absolute inset-0 grid-pattern opacity-50" />
+    <section 
+      id="skills" 
+      className="relative py-16 md:py-20 lg:py-24 overflow-visible"
+      style={{ minHeight: "auto", scrollMarginTop: "80px" }}
+    >
+      <div className="absolute inset-0 grid-pattern opacity-50 pointer-events-none" />
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <SectionHeading
           title="Skills & Expertise"
           subtitle="Technologies and tools I work with"
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.title}
