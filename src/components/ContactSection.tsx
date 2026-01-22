@@ -9,10 +9,15 @@ const ContactSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="contact" className="py-24 relative">
-      <div className="absolute inset-0 gradient-bg opacity-50" />
+    <section 
+      id="contact" 
+      ref={ref}
+      className="relative py-16 md:py-20 lg:py-24 overflow-visible"
+      style={{ minHeight: "auto", scrollMarginTop: "80px" }}
+    >
+      <div className="absolute inset-0 gradient-bg opacity-50 pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <SectionHeading
           title="Get In Touch"
           subtitle="I'm open to internship and entry-level software engineering opportunities. Feel free to reach out for collaboration or discussion."
@@ -24,7 +29,7 @@ const ContactSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-2xl mx-auto"
         >
-          <div className="glass-card p-8 md:p-12">
+          <div className="glass-card p-6 md:p-8 lg:p-12">
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">

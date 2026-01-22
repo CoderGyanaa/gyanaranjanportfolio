@@ -8,14 +8,17 @@ const ResumeSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 relative">
-      <div className="container mx-auto px-6">
+    <section 
+      className="relative py-16 md:py-20 lg:py-24 overflow-visible"
+      style={{ minHeight: "auto" }}
+    >
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="glass-card p-8 md:p-12 text-center max-w-3xl mx-auto relative overflow-hidden"
+          className="glass-card p-6 md:p-8 lg:p-12 text-center max-w-3xl mx-auto relative overflow-visible"
         >
           {/* Subtle background glow */}
           <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl pointer-events-none" />

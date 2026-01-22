@@ -33,14 +33,17 @@ const SocialSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-16 relative">
-      <div className="container mx-auto px-6">
+    <section 
+      className="relative py-12 md:py-16 overflow-visible"
+      style={{ minHeight: "auto" }}
+    >
+      <div className="container mx-auto px-4 sm:px-6">
         <SectionHeading
           title="Connect With Me"
           subtitle="Find me on these platforms"
         />
 
-        <div ref={ref} className="flex flex-wrap justify-center gap-6">
+        <div ref={ref} className="flex flex-wrap justify-center gap-4 md:gap-6">
           {socials.map((social, index) => (
             <motion.a
               key={social.name}

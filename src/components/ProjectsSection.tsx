@@ -295,14 +295,18 @@ const ProjectsSection = () => {
   const otherProjects = projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden">
+    <section 
+      id="projects" 
+      className="relative py-16 md:py-20 lg:py-24 overflow-visible"
+      style={{ minHeight: "auto", scrollMarginTop: "80px" }}
+    >
       {/* Background */}
       <ProjectsBackground />
       
       {/* Gradient overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-transparent pointer-events-none" />
       
-      <div className="container mx-auto px-6 relative z-10" ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6 relative z-10" ref={ref}>
         <SectionHeading
           title="Featured Projects"
           subtitle="A curated selection of projects showcasing my problem-solving skills, system design, and real-world development experience."

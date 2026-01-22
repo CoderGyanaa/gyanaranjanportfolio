@@ -4,7 +4,7 @@ import heroImage from "@/assets/hero/home.png";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen gradient-bg grid-pattern flex items-center justify-center relative overflow-hidden pt-20">
+    <section className="min-h-screen gradient-bg grid-pattern flex items-center justify-center relative overflow-visible pt-20">
       {/* Animated background elements - synchronized with particle colors */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
