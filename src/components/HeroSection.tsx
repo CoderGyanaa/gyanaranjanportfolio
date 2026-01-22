@@ -62,19 +62,29 @@ const HeroSection = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Confident intro - removed B.Tech label */}
+            {/* Confident intro - sharp typography */}
             <motion.h1
-              className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6"
+              className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
+              style={{
+                WebkitFontSmoothing: "antialiased",
+                MozOsxFontSmoothing: "grayscale",
+                textRendering: "optimizeLegibility",
+              }}
             >
               <span className="text-foreground">Hi, I'm </span>
               <span 
-                className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary inline-block"
+                className="hero-name-text inline-block pb-2"
                 style={{
-                  textShadow: "0 0 40px hsl(var(--neon-cyan) / 0.5)",
-                  filter: "drop-shadow(0 0 20px hsl(var(--neon-cyan) / 0.3))"
+                  background: "linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--accent)), hsl(var(--neon-cyan)))",
+                  backgroundSize: "200% 200%",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  lineHeight: 1.2,
+                  paddingBottom: "0.15em",
                 }}
               >
                 Gyana Ranjan
