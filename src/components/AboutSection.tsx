@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Award, Code, Lightbulb, Rocket } from "lucide-react";
+import SectionHeading from "./SectionHeading";
 
 const highlights = [
   {
@@ -33,18 +34,10 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-24 relative">
       <div className="container mx-auto px-6">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="section-title">About Me</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Passionate developer with a focus on building practical solutions
-          </p>
-        </motion.div>
+        <SectionHeading
+          title="About Me"
+          subtitle="Passionate developer with a focus on building practical solutions"
+        />
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div

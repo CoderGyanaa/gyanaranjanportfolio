@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Mail, MapPin, Send } from "lucide-react";
+import SectionHeading from "./SectionHeading";
 
 const ContactSection = () => {
   const ref = useRef(null);
@@ -12,19 +13,10 @@ const ContactSection = () => {
       <div className="absolute inset-0 gradient-bg opacity-50" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="section-title">Get In Touch</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            I'm open to internship and entry-level software engineering opportunities.
-            Feel free to reach out for collaboration or discussion.
-          </p>
-        </motion.div>
+        <SectionHeading
+          title="Get In Touch"
+          subtitle="I'm open to internship and entry-level software engineering opportunities. Feel free to reach out for collaboration or discussion."
+        />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
