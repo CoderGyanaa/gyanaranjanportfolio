@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import SectionHeading from "./SectionHeading";
 
 import img1 from "@/assets/achievements/infosys_2nd_runner_up.jpg";
 import img2 from "@/assets/achievements/infosys_duo.jpg";
@@ -71,18 +72,10 @@ const AchievementsSection = () => {
       <div className="absolute inset-0 grid-pattern opacity-30" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="section-title">Achievements & Highlights</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Capturing moments from hackathons, competitions, and memorable events
-          </p>
-        </motion.div>
+        <SectionHeading
+          title="Achievements & Highlights"
+          subtitle="Capturing moments from hackathons, competitions, and memorable events"
+        />
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {achievements.map((achievement, index) => (

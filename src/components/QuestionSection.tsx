@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { MessageCircle, Send, Loader2, CheckCircle, AlertCircle } from "lucide-react";
+import { Send, Loader2, CheckCircle, AlertCircle, Mail } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -10,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import ParticleBackground from "./ParticleBackground";
+import SectionHeading from "./SectionHeading";
 
 const questionSchema = z.object({
   name: z.string().trim().min(1, "Full name is required").max(100, "Name must be less than 100 characters"),
@@ -25,7 +25,6 @@ const WEBHOOK_URL = "https://gyanaranjan.app.n8n.cloud/webhook/7bdc569d-22a9-491
 
 const QuestionSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [lastSubmitTime, setLastSubmitTime] = useState(0);
@@ -84,32 +83,23 @@ const QuestionSection = () => {
       <div className="absolute inset-0 gradient-bg opacity-50" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <MessageCircle className="text-primary" size={32} />
-            <h2 className="section-title mb-0">Have a Question?</h2>
-          </div>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Feel free to ask anything about my projects, skills, or opportunities.
-          </p>
-        </motion.div>
+        <SectionHeading
+          title="Have a Question?"
+          subtitle="Feel free to ask anything about my projects, skills, or opportunities."
+        />
 
         <motion.div
+          ref={ref}
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-2xl mx-auto"
         >
           <div className="glass-card p-8 md:p-12 relative overflow-hidden">
-            {/* Subtle glow effect */}
-            <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/20 rounded-full blur-3xl" />
-            <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-accent/20 rounded-full blur-3xl" />
+            {/* Subtle glow effect synchronized with particles */}
+            <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-accent/20 rounded-full blur-3xl pointer-events-none" />
 
             {submitStatus === "success" ? (
               <motion.div
@@ -117,20 +107,37 @@ const QuestionSection = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 className="text-center py-8"
               >
-                <CheckCircle className="w-16 h-16 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-foreground mb-2">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: "spring", delay: 0.1 }}
+                  className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6"
+                >
+                  <CheckCircle className="w-10 h-10 text-primary" />
+                </motion.div>
+                <h3 className="text-2xl font-display font-semibold text-foreground mb-3">
                   Thank you!
                 </h3>
-                <p className="text-muted-foreground">
-                  Your message has been sent successfully.
+                <p className="text-muted-foreground mb-2">
+                  Your question has been submitted successfully.
                 </p>
-                <Button
-                  onClick={() => setSubmitStatus("idle")}
-                  variant="outline"
-                  className="mt-6"
+                <p className="text-sm text-muted-foreground/80 flex items-center justify-center gap-2">
+                  <Mail size={14} />
+                  You will receive a response by email shortly.
+                </p>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
                 >
-                  Send Another Message
-                </Button>
+                  <Button
+                    onClick={() => setSubmitStatus("idle")}
+                    variant="outline"
+                    className="mt-8 btn-outline"
+                  >
+                    Send Another Message
+                  </Button>
+                </motion.div>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 relative z-10">

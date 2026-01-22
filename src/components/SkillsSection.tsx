@@ -9,6 +9,7 @@ import {
   Database,
   FileCode
 } from "lucide-react";
+import SectionHeading from "./SectionHeading";
 
 const skillCategories = [
   {
@@ -52,18 +53,10 @@ const SkillsSection = () => {
       <div className="absolute inset-0 grid-pattern opacity-50" />
       
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="section-title">Skills & Expertise</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Technologies and tools I work with
-          </p>
-        </motion.div>
+        <SectionHeading
+          title="Skills & Expertise"
+          subtitle="Technologies and tools I work with"
+        />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (

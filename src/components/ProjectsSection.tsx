@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { ExternalLink, Github, Star, Sparkles } from "lucide-react";
+import SectionHeading from "./SectionHeading";
 
 const projects = [
   {
@@ -301,34 +302,11 @@ const ProjectsSection = () => {
       {/* Gradient overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-transparent pointer-events-none" />
       
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Section Header */}
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="section-title mb-4">Featured Projects</h2>
-          
-          {/* Glowing divider */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={isInView ? { scaleX: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="w-24 h-0.5 mx-auto mb-6 rounded-full"
-            style={{
-              background: 'linear-gradient(90deg, transparent, hsl(var(--primary)), transparent)',
-              boxShadow: '0 0 20px hsla(190, 100%, 50%, 0.5)',
-            }}
-          />
-          
-          <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            A curated selection of projects showcasing my problem-solving skills,
-            system design, and real-world development experience.
-          </p>
-        </motion.div>
+      <div className="container mx-auto px-6 relative z-10" ref={ref}>
+        <SectionHeading
+          title="Featured Projects"
+          subtitle="A curated selection of projects showcasing my problem-solving skills, system design, and real-world development experience."
+        />
 
         {/* Projects Grid */}
         <div className="space-y-8">

@@ -84,7 +84,7 @@
     border: 1px solid hsl(var(--glass-border));
   }
 
-  /* Neon glow effects */
+  /* Neon glow effects - synchronized with particle colors */
   .neon-glow {
     box-shadow: var(--glow-cyan);
   }
@@ -102,7 +102,42 @@
     box-shadow: 0 0 15px hsl(var(--neon-cyan) / 0.2), inset 0 0 15px hsl(var(--neon-cyan) / 0.1);
   }
 
-  /* Hero image glow frame */
+  /* Global section heading with synchronized glow */
+  .section-heading {
+    background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--neon-cyan)), hsl(var(--neon-purple)));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 6s ease-in-out infinite;
+    text-shadow: none;
+    filter: drop-shadow(0 0 20px hsl(var(--neon-cyan) / 0.3));
+  }
+
+  /* Glowing divider line for sections */
+  .section-divider {
+    background: linear-gradient(90deg, transparent, hsl(var(--neon-cyan)), hsl(var(--neon-purple)), transparent);
+    box-shadow: 
+      0 0 20px hsl(var(--neon-cyan) / 0.5),
+      0 0 40px hsl(var(--neon-purple) / 0.3);
+    animation: divider-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes divider-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.5), 0 0 40px hsl(var(--neon-purple) / 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 30px hsl(var(--neon-cyan) / 0.7), 0 0 60px hsl(var(--neon-purple) / 0.5);
+    }
+  }
+
+  /* Hero image glow frame - synchronized with particles */
   .hero-image-frame {
     @apply relative;
     background: linear-gradient(135deg, hsl(var(--neon-cyan) / 0.2), hsl(var(--neon-purple) / 0.2));
@@ -119,7 +154,7 @@
     position: absolute;
     inset: -2px;
     border-radius: 50%;
-    background: linear-gradient(45deg, hsl(var(--neon-cyan)), hsl(var(--neon-purple)), hsl(var(--neon-cyan)));
+    background: linear-gradient(45deg, hsl(var(--neon-cyan)), hsl(var(--neon-purple)), hsl(var(--neon-blue)), hsl(var(--neon-cyan)));
     z-index: -1;
     animation: rotate-glow 4s linear infinite;
   }
@@ -138,9 +173,9 @@
       hsl(var(--background));
   }
 
-  /* Button variants */
+  /* Button variants with enhanced feedback */
   .btn-primary {
-    @apply relative inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg overflow-hidden transition-all duration-300;
+    @apply relative inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg overflow-hidden transition-all duration-300 cursor-pointer select-none;
     background: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-blue)));
     color: hsl(var(--background));
     box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.4);
@@ -151,8 +186,13 @@
     transform: translateY(-2px);
   }
 
+  .btn-primary:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 0 15px hsl(var(--neon-cyan) / 0.4);
+  }
+
   .btn-outline {
-    @apply relative inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg overflow-hidden transition-all duration-300;
+    @apply relative inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg overflow-hidden transition-all duration-300 cursor-pointer select-none;
     background: transparent;
     border: 1px solid hsl(var(--neon-cyan) / 0.5);
     color: hsl(var(--neon-cyan));
@@ -162,6 +202,11 @@
     background: hsl(var(--neon-cyan) / 0.1);
     border-color: hsl(var(--neon-cyan));
     box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.3);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline:active {
+    transform: translateY(0) scale(0.98);
   }
 
   /* Skill card hover */
@@ -174,7 +219,7 @@
     transform: translateY(-4px);
   }
 
-  /* Section styling */
+  /* Legacy section-title (deprecated - use section-heading) */
   .section-title {
     @apply text-3xl md:text-4xl font-bold mb-4;
     background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--neon-cyan)));
@@ -193,10 +238,10 @@
     animation: float 3s ease-in-out infinite;
   }
 
-  /* Pulse glow */
+  /* Pulse glow - synchronized with particle colors */
   @keyframes pulse-glow {
     0%, 100% { box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.4); }
-    50% { box-shadow: 0 0 40px hsl(var(--neon-cyan) / 0.6); }
+    50% { box-shadow: 0 0 40px hsl(var(--neon-cyan) / 0.6), 0 0 60px hsl(var(--neon-purple) / 0.3); }
   }
 
   .animate-pulse-glow {
@@ -209,6 +254,41 @@
       linear-gradient(hsl(var(--neon-cyan) / 0.03) 1px, transparent 1px),
       linear-gradient(90deg, hsl(var(--neon-cyan) / 0.03) 1px, transparent 1px);
     background-size: 50px 50px;
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .hero-image-frame {
+      box-shadow: 
+        0 0 25px hsl(var(--neon-cyan) / 0.2),
+        0 0 50px hsl(var(--neon-cyan) / 0.1);
+    }
+
+    .neon-glow, .neon-glow-purple {
+      box-shadow: 0 0 15px hsl(var(--neon-cyan) / 0.3);
+    }
+
+    .section-heading {
+      filter: drop-shadow(0 0 10px hsl(var(--neon-cyan) / 0.2));
+    }
   }
 
   /* Scrollbar styling */
