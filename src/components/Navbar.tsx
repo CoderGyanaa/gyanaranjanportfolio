@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -14,7 +14,9 @@ const navLinks = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
+  // Handle scroll for navbar background
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -22,6 +24,35 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Handle active section detection
+  const updateActiveSection = useCallback(() => {
+    const sections = navLinks.map((link) => link.href.replace("#", ""));
+    const scrollPosition = window.scrollY + 150; // Offset for navbar height
+
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const section = document.getElementById(sections[i]);
+      if (section && section.offsetTop <= scrollPosition) {
+        setActiveSection(sections[i]);
+        return;
+      }
+    }
+    setActiveSection("");
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      updateActiveSection();
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    // Initial check
+    updateActiveSection();
+    
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [updateActiveSection]);
+
+  const isActive = (href: string) => activeSection === href.replace("#", "");
 
   return (
     <motion.nav
@@ -37,6 +68,7 @@ const Navbar = () => {
           href="#"
           className="text-2xl font-display font-bold text-foreground"
           whileHover={{ scale: 1.05 }}
+          onClick={() => setActiveSection("")}
         >
           <span className="text-primary">G</span>yana
         </motion.a>
@@ -50,9 +82,30 @@ const Navbar = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium"
+              className={`relative text-sm font-medium transition-colors duration-300 py-1 ${
+                isActive(link.href)
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-primary"
+              }`}
             >
               {link.name}
+              {/* Active/hover underline with glow */}
+              <span
+                className={`absolute bottom-0 left-0 w-full h-0.5 rounded-full transition-all duration-300 ${
+                  isActive(link.href)
+                    ? "bg-primary scale-x-100 shadow-[0_0_10px_hsl(var(--primary))]"
+                    : "bg-primary scale-x-0 group-hover:scale-x-100"
+                }`}
+                style={{
+                  transformOrigin: "center",
+                }}
+              />
+              {/* Hover underline */}
+              <span
+                className={`absolute bottom-0 left-0 w-full h-0.5 rounded-full bg-primary transition-transform duration-300 origin-left ${
+                  isActive(link.href) ? "scale-x-100" : "scale-x-0 hover:scale-x-100"
+                }`}
+              />
             </motion.a>
           ))}
           <motion.a
@@ -90,8 +143,15 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 py-2"
+                className={`py-2 transition-colors duration-300 flex items-center gap-2 ${
+                  isActive(link.href)
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
+                }`}
               >
+                {isActive(link.href) && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary))]" />
+                )}
                 {link.name}
               </a>
             ))}
