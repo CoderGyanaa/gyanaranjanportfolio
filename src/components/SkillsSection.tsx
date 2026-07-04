@@ -15,38 +15,38 @@ const skillCategories = [
   {
     title: "Programming Languages",
     icon: FileCode,
-    skills: ["Java", "Python", "JavaScript"],
+    skills: ["Java", "Python", "SQL"],
     color: "from-cyan-500 to-blue-500",
   },
   {
-    title: "Core CS",
+    title: "AI & LLM",
     icon: Brain,
-    skills: ["Data Structures & Algorithms", "OOP", "DBMS", "Problem Solving"],
+    skills: ["Prompt Engineering", "Google Gemini API", "ChatGPT API", "n8n Automation"],
     color: "from-purple-500 to-pink-500",
   },
   {
-    title: "Web Development",
+    title: "Core CS",
+    icon: Server,
+    skills: ["Data Structures & Algorithms", "OOP", "DBMS", "Problem Solving"],
+    color: "from-indigo-500 to-purple-500",
+  },
+  {
+    title: "Web Technologies",
     icon: Globe,
-    skills: ["HTML", "CSS", "JavaScript", "React", "Node.js"],
+    skills: ["HTML", "CSS", "JavaScript", "Flask"],
     color: "from-orange-500 to-red-500",
   },
   {
-    title: "Backend & Databases",
+    title: "Databases",
     icon: Database,
-    skills: ["SQL", "MySQL", "MongoDB", "REST APIs"],
+    skills: ["MySQL", "MongoDB", "SQLite"],
     color: "from-blue-500 to-indigo-500",
   },
   {
     title: "Tools & Platforms",
     icon: Wrench,
-    skills: ["Git", "GitHub", "VS Code", "Postman"],
+    skills: ["Git", "GitHub", "VS Code", "Jupyter Notebook", "Power BI"],
     color: "from-green-500 to-emerald-500",
-  },
-  {
-    title: "Frameworks",
-    icon: Server,
-    skills: ["Flask", "Tailwind CSS", "Jupyter Notebook"],
-    color: "from-teal-500 to-cyan-500",
   },
 ];
 
