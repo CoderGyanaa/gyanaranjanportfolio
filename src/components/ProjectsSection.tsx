@@ -9,18 +9,35 @@ const projects = [
     title: "Bilingual AI-Powered Diet Coach",
     subtitle: "Voice Enabled • Real-Time Interaction",
     description:
-      "A voice-enabled AI chatbot for personalized diet and nutrition management, supporting both English and Hindi. Provides customized meal recommendations, calorie suggestions, and hydration reminders through real-time voice interaction.",
-    techStack: ["Python", "Flask", "OpenAI API", "Web Speech API", "Vapi.ai"],
+      "A Python Flask web app that takes real-time voice input and delivers personalized diet advice in English and Hindi using the ChatGPT API. Integrates the Web Speech API for voice-to-text and applies prompt engineering to improve AI response quality.",
+    techStack: ["Python", "Flask", "ChatGPT API", "Web Speech API", "Prompt Engineering"],
     github: "https://github.com/CoderGyanaa/Bilingual-AI-Powered-Diet-Coach-with-Real-Time-Voice-Support.git",
     demo: "https://vapi.ai/?demo=true&shareKey=9fd88c16-fb27-4c26-8baf-14fd8f737f3c&assistantId=e28f8198-431f-44b5-af46-d448ae273da8",
     featured: true,
   },
   {
-    title: "SkillBridge Frontend",
-    subtitle: "Adaptive Digital Empowerment Platform",
+    title: "Smart Employee Leave Management System",
+    subtitle: "Java • OOP • SQLite",
     description:
-      "An adaptive digital empowerment platform designed to enhance learning and career growth. Features a responsive, modern UI with smooth navigation and user-centric design.",
-    techStack: ["HTML", "CSS", "JavaScript"],
+      "A Java-based application to manage employee leaves — includes leave application, manager approval, cancellation, and automatic balance tracking. Applies OOP principles, custom exception handling, and Java Collections with SQLite for persistent storage.",
+    techStack: ["Java", "SQLite", "OOP", "Exception Handling", "Collections"],
+    github: "https://github.com/CoderGyanaa",
+  },
+  {
+    title: "AI Assistant",
+    subtitle: "Prompt Engineering Web Application",
+    description:
+      "A Python Flask web app integrating Google Gemini 2.5 Flash API for real-time question answering, text summarization, and content generation. Implements multiple prompt engineering strategies, rate-limit handling, and automatic model selection.",
+    techStack: ["Python", "Flask", "Google Gemini 2.5 API", "Prompt Engineering"],
+    github: "https://github.com/CoderGyanaa/ai-assistant-prompt-engineering.git",
+    demo: "https://ai-assistant-17eb.onrender.com/",
+  },
+  {
+    title: "SkillBridge — AI Learning Platform",
+    subtitle: "AI-Based Career Matching for Rural Learners",
+    description:
+      "Frontend of an AI-based career matching platform for rural learners, built as part of a 3-member team. Contributed to problem analysis, solution design, and presentation — delivered a working prototype under a 24-hour hackathon constraint.",
+    techStack: ["HTML", "CSS", "JavaScript", "AI Integration"],
     github: "https://github.com/CoderGyanaa/SkillBridge_Frontend-Part.git",
     demo: "https://beautiful-salamander-899eb7.netlify.app/",
   },
@@ -31,15 +48,6 @@ const projects = [
       "A multi-role web platform designed for students, experts, certifiers, and job providers. Includes role-based dashboards and advanced features such as AI chat, AR/VR labs, and job management tools.",
     techStack: ["Node.js", "TypeScript", "React", "Tailwind CSS", "MongoDB"],
     github: "https://github.com/CoderGyanaa/MetaAchievers_Team339.git",
-  },
-  {
-    title: "AI Assistant",
-    subtitle: "Gemini Powered",
-    description:
-      "A smart AI assistant web application that can answer questions, summarize text, and generate creative ideas through a clean and responsive interface.",
-    techStack: ["Python", "Flask", "Google Gemini API"],
-    github: "https://github.com/CoderGyanaa/ai-assistant-prompt-engineering.git",
-    demo: "https://ai-assistant-17eb.onrender.com/",
   },
 ];
 

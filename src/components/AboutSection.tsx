@@ -6,24 +6,24 @@ import SectionHeading from "./SectionHeading";
 
 const highlights = [
   {
-    icon: Code,
-    title: "Java & DSA",
-    description: "Strong foundation in core programming",
-  },
-  {
-    icon: Lightbulb,
-    title: "Problem Solver",
-    description: "Turning complex challenges into solutions",
-  },
-  {
     icon: Award,
-    title: "Hackathon Finalist",
+    title: "2nd Runner-Up",
     description: "Infosys Global Hackathon 2025",
   },
   {
+    icon: Code,
+    title: "CodeVita Top 2%",
+    description: "TCS CodeVita Season 13 — Global Rank 1025",
+  },
+  {
+    icon: Lightbulb,
+    title: "AI & Java Focus",
+    description: "Prompt Engineering, LLMs & OOP systems",
+  },
+  {
     icon: Rocket,
-    title: "Full-Stack Ready",
-    description: "Backend to frontend development",
+    title: "CGPA 8.94 / 10",
+    description: "B.Tech CSE — C.V. Raman Global University",
   },
 ];
 
@@ -56,19 +56,20 @@ const AboutSection = () => {
             className="glass-card p-6 md:p-8 w-full"
           >
             <p className="text-foreground/90 leading-relaxed mb-4 md:mb-6 text-sm md:text-base">
-              I am a final-year Computer Science Engineering student with a strong foundation in Java,
-              Data Structures, and problem solving.
+              I am a B.Tech Computer Science Engineering graduate (2026) with strong foundations
+              in Java, Python, and SQL, and practical experience in AI application development,
+              Machine Learning, and data analysis.
             </p>
             <p className="text-foreground/90 leading-relaxed mb-4 md:mb-6 text-sm md:text-base">
-              I enjoy building practical software systems, from backend-focused Java applications to
-              AI-powered web solutions. I have hands-on experience working on hackathon and academic
-              projects where I focused on clean logic, scalability, and real-world usability.
+              I have built and deployed multiple projects across web, AI, and data domains — from
+              backend-focused Java systems with OOP and SQLite, to AI-powered Flask applications
+              using Google Gemini and ChatGPT APIs with prompt engineering and n8n automation.
             </p>
             <p className="text-foreground/90 leading-relaxed text-sm md:text-base">
-              As an <span className="text-primary font-medium">Infosys Global Hackathon finalist</span>, 
-              I thrive in fast-paced environments and enjoy turning complex problems into simple, 
-              effective solutions. I am actively preparing for entry-level software engineering roles 
-              where I can learn, contribute, and grow.
+              As the <span className="text-primary font-medium">Second Runner-Up at the Infosys Global
+              Hackathon 2025</span> and a <span className="text-primary font-medium">TCS CodeVita Season 13
+              global top 2%</span> finalist, I focus on building impactful solutions through consistent
+              learning and execution — actively preparing for entry-level software engineering roles.
             </p>
           </motion.div>
 
