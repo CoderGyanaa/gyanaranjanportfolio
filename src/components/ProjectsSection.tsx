@@ -6,6 +6,15 @@ import SectionHeading from "./SectionHeading";
 
 const projects = [
   {
+    title: "CareerCraft AI – AI-Powered Career Platform",
+    subtitle: "AI Career Tools • Gemini API",
+    description:
+      "CareerCraft AI helps students and fresh graduates discover jobs, internships, hackathons, scholarships, certifications, career roadmaps, and learning resources in one platform. Includes AI-powered tools: ATS Resume Checker, Resume Analyzer, Cover Letter Generator, LinkedIn Search Hub, and AI Career Guidance.",
+    techStack: ["HTML5", "CSS3", "JavaScript", "Google Gemini API", "REST APIs"],
+    demo: "https://jobfindfast.netlify.app/",
+    featured: true,
+  },
+  {
     title: "Bilingual AI-Powered Diet Coach",
     subtitle: "Voice Enabled • Real-Time Interaction",
     description:
@@ -13,7 +22,6 @@ const projects = [
     techStack: ["Python", "Flask", "ChatGPT API", "Web Speech API", "Prompt Engineering"],
     github: "https://github.com/CoderGyanaa/Bilingual-AI-Powered-Diet-Coach-with-Real-Time-Voice-Support.git",
     demo: "https://vapi.ai/?demo=true&shareKey=9fd88c16-fb27-4c26-8baf-14fd8f737f3c&assistantId=e28f8198-431f-44b5-af46-d448ae273da8",
-    featured: true,
   },
   {
     title: "Smart Employee Leave Management System",
@@ -21,8 +29,9 @@ const projects = [
     description:
       "A Java-based application to manage employee leaves — includes leave application, manager approval, cancellation, and automatic balance tracking. Applies OOP principles, custom exception handling, and Java Collections with SQLite for persistent storage.",
     techStack: ["Java", "SQLite", "OOP", "Exception Handling", "Collections"],
-    github: "https://github.com/CoderGyanaa",
+    github: "https://github.com/CoderGyanaa/leave-management-system.git",
   },
+
   {
     title: "AI Assistant",
     subtitle: "Prompt Engineering Web Application",
