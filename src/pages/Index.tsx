@@ -3,7 +3,9 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import InternshipSection from "@/components/InternshipSection";
 import AchievementsSection from "@/components/AchievementsSection";
+
 import ResumeSection from "@/components/ResumeSection";
 import SocialSection from "@/components/SocialSection";
 import ContactSection from "@/components/ContactSection";
